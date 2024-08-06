@@ -5,14 +5,14 @@ namespace AplikasiUploadExcel.Api.Services
 {
     public static class UploadExcel
     {
-        public static List<T> Import<T>(string filePath) where T : new()
+        public static List<T> Import<T>(string filePath, int sheetNumber) where T : new()
         {
             XSSFWorkbook workbook;
             using(var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             {
                 workbook = new XSSFWorkbook(stream);
             }
-            var sheet = workbook.GetSheetAt(0);
+            var sheet = workbook.GetSheetAt(sheetNumber);
             var rowHeader = sheet.GetRow(0);
             var colIndexList = new Dictionary<string, int>();
             foreach(var cell in rowHeader.Cells)

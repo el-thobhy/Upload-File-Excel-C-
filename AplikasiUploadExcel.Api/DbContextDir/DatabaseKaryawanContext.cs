@@ -17,6 +17,10 @@ public partial class DatabaseKaryawanContext : DbContext
     }
 
     public virtual DbSet<Biodata> Biodata { get; set; }
+    public virtual DbSet<CC_Category> CC_Categories { get; set; }
+    public virtual DbSet<CC_Priority> CC_Priorities { get; set; }
+    public virtual DbSet<MaterialPlant> MaterialPlants { get; set; }
+    public virtual DbSet<Org_Dept> Org_Depts { get; set; }
 
     public virtual DbSet<Employee> Employees { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -50,6 +54,35 @@ public partial class DatabaseKaryawanContext : DbContext
             entity.Property(e => e.ModifiedBy).HasMaxLength(50);
             entity.Property(e => e.Nip).HasMaxLength(5);
             entity.Property(e => e.Status).HasMaxLength(10);
+        });
+
+        modelBuilder.Entity<CC_Category>(entity =>
+        {
+            entity.ToTable("CC_Category");
+            entity.HasKey(e => e.ID);
+            entity.Property(e => e.ID).ValueGeneratedOnAdd();
+        });
+
+        modelBuilder.Entity<CC_Priority>(entity =>
+        {
+            entity.ToTable("CC_Priority");
+            entity.HasKey(e => e.ID);
+            entity.Property(e => e.ID).ValueGeneratedOnAdd();
+        });
+
+        modelBuilder.Entity<MaterialPlant>(entity =>
+        {
+            entity.ToTable("Material_Plant");
+            entity.HasKey(e => e.ID);
+            entity.Property(e => e.ID).ValueGeneratedOnAdd();
+        });
+
+        modelBuilder.Entity<Org_Dept>(entity =>
+        {
+            entity.ToTable("Org_Dept");
+            entity.HasKey(e => e.ID);
+            entity.Property(e => e.ID).ValueGeneratedOnAdd();
+            entity.Property(e => e.OrgCode).IsRequired(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

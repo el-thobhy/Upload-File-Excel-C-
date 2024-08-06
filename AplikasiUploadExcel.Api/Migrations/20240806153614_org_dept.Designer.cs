@@ -4,6 +4,7 @@ using AplikasiUploadExcel.Api.DbContextDir;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplikasiUploadExcel.Api.Migrations
 {
     [DbContext(typeof(DatabaseKaryawanContext))]
-    partial class DatabaseKaryawanContextModelSnapshot : ModelSnapshot
+    [Migration("20240806153614_org_dept")]
+    partial class org_dept
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

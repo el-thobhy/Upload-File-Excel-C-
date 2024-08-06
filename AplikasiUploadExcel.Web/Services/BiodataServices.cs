@@ -12,9 +12,9 @@ namespace AplikasiUploadExcel.Web.Services
         {
             _url =  url;
         }
-        public async Task<List<BiodataViewModel>> GetAllBiodata()
-        {
-            string response = await _client.GetStringAsync(_url);
-        }
+        //public async Task<List<BiodataViewModel>> GetAllBiodata()
+        //{
+        //    string response = await _client.GetStringAsync(_url);
+        //}
     }
 }
